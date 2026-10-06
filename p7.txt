@@ -1,0 +1,21 @@
+
+CODE SEGMENT
+START:
+    MOV SI,OFFSET SOURCE    
+    MOV DI,OFFSET DEST     
+    MOV CX,05H              
+
+COPY:
+    MOV AL,[SI]             
+    MOV [DI],AL           
+    INC SI                  
+    INC DI                 
+    LOOP COPY               
+
+    INT 3                   
+
+SOURCE DB 'HELLO'
+DEST   DB 05 DUP(?)
+
+CODE ENDS
+END START
